@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h1>User Home Page</h1>
+<h1>Welcome back: @Context.Session.GetString("email")</h1>
+
