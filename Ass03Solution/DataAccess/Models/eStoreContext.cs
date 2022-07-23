@@ -11,6 +11,10 @@ namespace DataAccess.Models
         public eStoreContext()
         {
         }
+        public eStoreContext(string cn)
+        {
+            this.Database.SetConnectionString(cn);
+        }
 
         public eStoreContext(DbContextOptions<eStoreContext> options)
             : base(options)
