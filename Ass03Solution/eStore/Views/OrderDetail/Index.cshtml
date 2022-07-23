@@ -52,6 +52,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new {orderId=item.OrderId, productId=item.ProductId} ) |
                 @Html.ActionLink("Details", "Details", new {orderId=item.OrderId, productId=item.ProductId} ) |
+               @* delete constrain key*@
                 @Html.ActionLink("Delete", "Delete", new {orderId=item.OrderId, productId=item.ProductId} )
             </td>
         </tr>
