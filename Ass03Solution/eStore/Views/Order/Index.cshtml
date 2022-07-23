@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DataAccess.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Orders</h1>
+<form asp-action="Search" asp-controller="Order" class="form-check-inline">
+    <div class="form-group my-1">
+        <input class="form-control" type="datetime-local"
+            name="start"/>
+        <input class="form-control" type="datetime-local"
+            name="end"/>
+    </div>
+    <div class="form-group my-1">
+        <input type="submit" value="Submit" class="btn btn-primary"/>
+    </div>
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShippedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Freight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.OrderId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.OrderId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
